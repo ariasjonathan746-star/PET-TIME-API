@@ -52,3 +52,15 @@ La contraseña no se almacena directamente. Se utiliza `password_hash()` para ge
 También se implementó el manejo de respuestas HTTP. Por ejemplo, se utiliza `201 Created` cuando el usuario se registra correctamente y `409 Conflict` cuando el correo ya se encuentra registrado.
 
 El servicio fue probado mediante Postman y se verificó que la información fuera almacenada correctamente en la tabla `usuarios` de la base de datos `pet_time_api`.
+
+## Servicio de inicio de sesión
+
+Se desarrolló el servicio de inicio de sesión para validar las credenciales de los usuarios registrados en PET-TIME.
+
+El servicio utiliza el método `POST` y recibe el correo electrónico y la contraseña en formato JSON. Primero se consulta el usuario mediante su correo y posteriormente se utiliza `password_verify()` para comparar la contraseña recibida con el hash almacenado en la base de datos.
+
+Cuando las credenciales son correctas, el servicio devuelve una respuesta `200 OK` indicando que la autenticación fue satisfactoria.
+
+También se realizó una prueba con una contraseña incorrecta. En este caso, el servicio devuelve `401 Unauthorized` y un mensaje indicando que el correo o la contraseña son incorrectos.
+
+Las pruebas fueron realizadas mediante Postman, comprobando tanto el escenario de autenticación satisfactoria como el escenario de autenticación fallida.
