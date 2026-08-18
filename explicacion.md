@@ -64,3 +64,23 @@ Cuando las credenciales son correctas, el servicio devuelve una respuesta `200 O
 También se realizó una prueba con una contraseña incorrecta. En este caso, el servicio devuelve `401 Unauthorized` y un mensaje indicando que el correo o la contraseña son incorrectos.
 
 Las pruebas fueron realizadas mediante Postman, comprobando tanto el escenario de autenticación satisfactoria como el escenario de autenticación fallida.
+
+## Pruebas de los servicios
+
+Los servicios desarrollados fueron probados mediante Postman para verificar tanto los casos exitosos como las diferentes situaciones de error.
+
+### Registro
+
+Se comprobó el registro correcto de un usuario, obteniendo una respuesta `201 Created`.
+
+También se realizaron pruebas con correo duplicado, datos incompletos, correo inválido y una contraseña con menos de seis caracteres. La API respondió correctamente con los códigos de error correspondientes.
+
+### Inicio de sesión
+
+Se comprobó la autenticación utilizando credenciales correctas, obteniendo una respuesta `200 OK`.
+
+También se realizaron pruebas con una contraseña incorrecta y con un usuario inexistente, obteniendo `401 Unauthorized`.
+
+Finalmente, se probó el inicio de sesión de un usuario con estado inactivo. La API rechazó correctamente el acceso y devolvió `403 Forbidden`.
+
+Estas pruebas permitieron comprobar el funcionamiento de las validaciones implementadas y la correcta comunicación entre PHP y la base de datos.
